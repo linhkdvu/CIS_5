@@ -25,21 +25,21 @@ using namespace std;
 //Executable code begins here!!!
 int main(int argc, char** argv) {
     //Declare Variables
-    char Cel,//Degree in Celsius.
-         Fahr;//Degree in Fahrenheit.
+    float C,//Degree in Celsius.
+          F;//Degree in Fahrenheit.
     
     
     //Input values
     cout<<"This is a program that converts Celsius temperatures to Fahrenheit temperatures.\n"<<endl;
     cout<<"Please enter the degree of Celsius that you want to convert."<<endl;
-    cin>>Cel;
+    cin>>C;
     
     
     //Process by mapping inputs to outputs
-    Fahr=(9/5)*Cel+32;
+    F=C*9/5+32;
     
     //Output values
-    cout<<"\nDegree in Fahrenheit = "<<Fahr<<"F"<<endl;
+    cout<<"\nDegree in Fahrenheit = "<<F<<"F"<<endl;
 
     //Exit stage right!
     return 0;
