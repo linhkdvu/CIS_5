@@ -3,6 +3,15 @@
   Author: Dr. Mark E. Lehr
   Created on January 12, 2017, 1:15 PM
   Purpose:  Word Game
+            Write a program that plays a word game with the user. The program should 
+            ask the user to enter the following:
+           + His or her name
+           + His or her age
+           + The name of a city
+           + The name of a college
+           + A profession
+           + A type of animal
+           + A pet's name
  */
 
 //System Libraries
