@@ -1,8 +1,8 @@
 /* 
   File:   main.cpp
   Author: Dr. Mark E. Lehr
-  Created on January 5, 2017, 12:15 PM
-  Purpose:  Output big C
+  Created on January 5, 2017, 12:20 PM
+  Purpose:  Output Big C
  */
 
 //System Libraries
@@ -32,17 +32,18 @@ int main(int argc, char** argv) {
     //Process by mapping inputs to outputs
     
     //Output values
-    cout<<"   "<<c<<"  "<<c<<"  "<<c<<endl;
-    cout<<" "<<c<<"         "<<c<<endl;
-    cout<<c<<endl; 
-    cout<<c<<endl; 
-    cout<<c<<endl; 
-    cout<<c<<endl; 
-    cout<<c<<endl; 
-    cout<<" "<<c<<"         "<<c<<endl;
-    cout<<"   "<<c<<"  "<<c<<"  "<<c<<endl;
+    cout<<endl<<"A Big C with the letter "<<c<<endl<<endl;
     
-
+    cout<<"    "<<c<<" "<<c<<" "<<c<<endl;
+    cout<<"  "<<c<<"       "<<c<<endl;
+    cout<<" "<<c<<endl;
+    cout<<" "<<c<<endl;
+    cout<<" "<<c<<endl;
+    cout<<" "<<c<<endl;
+    cout<<" "<<c<<endl;
+    cout<<"  "<<c<<"       "<<c<<endl;
+    cout<<"    "<<c<<" "<<c<<" "<<c<<endl;
+    
     //Exit stage right!
     return 0;
 }

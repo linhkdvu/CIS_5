@@ -21,24 +21,24 @@ using namespace std;
 //Executable code begins here!!!
 int main(int argc, char** argv) {
     //Declare and Initialize Variables
-    unsigned char stkPrce=35;//Units of $'s/share
+    unsigned char stkPrce=35;  //Units of $'s/share
     unsigned short nShares=750;//Number of Shares
-    float comishn=2.0e-2f;//Percent Commission
-    unsigned short stkPaid,comPaid,totPaid; 
+    float comishn=2.0e-2f;     //Percent Commission
+    unsigned short stkPaid,comPaid,totPaid;
     
     //Process by mapping inputs to outputs
-    stkPaid=stkPrce*nShares;        //Amount Paid for the Stock Purchase $'s
-    comPaid=stkPaid*comishn;        //Commission on Stock Purchase $'s
-    totPaid=stkPaid+comPaid;        //Total Paid $'s
+    stkPaid=stkPrce*nShares;          //Amount Paid for the Stock Purchase $'s
+    comPaid=stkPaid*comishn;          //Commission on Stock Purchase $'s
+    totPaid=stkPaid+comPaid;          //Total Paid $'s
     
     //Output values
-    cout<<"Stock Price/Share= $"<<static_cast<int>(stkPrce)<<"/share"<<endl;
-    cout<<"Number of Shares = "<<nShares<<" shares"<<endl;
-    cout<<"Commission       =  "<<comishn<<"\n"<<endl;  
+    cout<<"Stock Price/Share= $   "<<static_cast<int>(stkPrce)<<"/share"<<endl;
+    cout<<"Number of Shares =    "<<nShares<<"shares"<<endl;
+    cout<<"Commission              "<<comishn<<endl;
     cout<<"Stock Price Paid = $"<<stkPaid<<endl;
     cout<<"Commission Paid  = $  "<<comPaid<<endl;
     cout<<"Total Paid       = $"<<totPaid<<endl;
-    
+
     //Exit stage right!
     return 0;
 }

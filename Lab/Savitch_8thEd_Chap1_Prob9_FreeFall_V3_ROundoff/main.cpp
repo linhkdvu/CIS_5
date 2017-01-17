@@ -16,7 +16,7 @@ using namespace std;
 //Such as PI, Vc, -> Math/Science values
 //as well as conversions from system of units to 
 //another
-const float GRAVITY = 3.2174e1f;//Gravity on the earth sea level ft/sea level
+const float GRAVITY=3.2174e1f;//Gravity on the earth sea level ft/sec^2
 
 //Function Prototypes
 
@@ -39,7 +39,6 @@ int main(int argc, char** argv) {
     distnce=GRAVITY*time*time/2;
     int id=distnce*pow(10,rndOff)+0.5;//Rounding to rndOff decimals
     distnce=id/pow(10,rndOff);
-    
     
     //Output values
     cout<<"The distance fallen = "<<distnce<<" ft"<<endl;
