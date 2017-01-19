@@ -32,8 +32,8 @@ int main(int argc, char** argv) {
         cout<<"\nChoose from the list"<<endl;
         cout<<"Type 1 for Problem 1 - Gaddis 8th Edition: "<<endl;
         cout<<"Type 2 for Problem 2 - Gaddis 8th Edition: "<<endl;
-        cout<<"Type 3 for Problem "<<endl;
-        cout<<"Type 4 for Problem "<<endl;
+        cout<<"Type 3 for Problem 3 - Gaddis 8th Edition: "<<endl;
+        cout<<"Type 4 for Problem 4 - Gaddis 8th Edition: "<<endl;
         cout<<"Type 5 for Problem "<<endl;
         cout<<"Type 6 for Problem "<<endl;
         cout<<"Type 7 for Problem "<<endl;
@@ -81,39 +81,91 @@ int main(int argc, char** argv) {
             case '3': {
                 cout<<"We are in Problem 3: Ocean Levels."<<endl;
                 //Declare Variables
+                float lvl=0;//Lever ocean per year
                 
                 //Loop on the problem
-                
-                //Output Values
-                
+                for (unsigned short yrs=1;yrs<=25;yrs++) {
+                    lvl+=1.5;
+                    cout<<"Year "<<yrs<<": "<<lvl<<" millimeters."<<endl;
+                }
                 break;
             }
             case '4': {
                 cout<<"We are in Problem 4: Calories Burned."<<endl;
+                //Declare Variables
+                int calbrn=0,//Calories Burned
+                      minute;  //Minutes
                 
+                //Loop on the problem
+                if(minute%5==0&&minute>5) {
+                    for (int cal=5;cal<=30;cal++) {
+                    calbrn+=3.6;
+                    }
+                }
+                //Output
+                if (minute%5==0&&minute>5) {
+                    cout<<"Calories burned after "<<minute<<": "<<calbrn
+                                <<" calories."<<endl;
+                }
                 break;
             }
             case '5': {
                 cout<<"We are in Problem 5: Membership Fees Increase."<<endl;
+                //Declare Variables
+                
+                //Input Value
+                
+                //Loop on the problem
+                
+                //Output
                 
                 break;
             }
             case '6': {
                 cout<<"We are in Problem 6: Distance Traveled."<<endl;
+                //Declare variables 
+                
+                //Input Values
+                
+                //Loop on the problem
+                
+                //Output
                 
                 break;
             }
             case '7': {
                 cout<<"We are in Problem 7: Pennies for Pay."<<endl;
+                //Declare variables
                 
+                //Input Value
+                
+                //Loop on the problem
+                
+                //Output
+
                 break;
             }
             case '8': {
                 cout<<"We are in Problem 8: "<<endl;
+                //Declare variables
+                
+                //Input Value
+                
+                //Loop on the problem
+                
+                //Output
+                
                 break;
             }
             case '9': {
                 cout<<"We are in Problem 9: "<<endl;
+                //Declare variables
+                
+                //Input Value
+                
+                //Loop on the problem
+                
+                //Output
                 
             }
             default:
