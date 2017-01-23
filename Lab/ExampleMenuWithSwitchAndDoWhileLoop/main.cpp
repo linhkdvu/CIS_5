@@ -1,12 +1,12 @@
 /* 
   File:   main.cpp
   Author: Dr. Mark E. Lehr
-  Created on January 17, 2017, 12:15 PM
+  Created on January 17, 2017, 12:10 PM
   Purpose:  Example Menu to be used in Homework
  */
 
 //System Libraries
-#include <iostream>
+#include <iostream>//Input Output Library
 #include <cstdlib> //Random number generator seed
 #include <ctime>   //Time Library
 #include <iomanip> //Format Library
@@ -36,16 +36,16 @@ int main(int argc, char** argv) {
         cin>>choice;
 
         //Switch to determine the Problem
-        switch(choice) {
-            case '1': {
+        switch(choice){
+            case '1':{
                 cout<<"We are in Problem 1"<<endl;
                 break;
             }
-            case '2': {
+            case '2':{
                 cout<<"We are in Problem 2"<<endl;
                 break;
             }
-            case '3': {
+            case '3':{
                 cout<<"We are in Problem 3"<<endl;
                 break;
             }
@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
                 cout<<"You are exiting the program"<<endl;
         }
     }while(choice>='1'&&choice<='3');
-
+    
     //Exit stage right!
     return 0;
 }
