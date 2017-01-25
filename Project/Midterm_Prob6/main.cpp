@@ -28,19 +28,28 @@ using namespace std;
 //Executable code begins here!!!
 int main(int argc, char** argv) {
     //Declare Variables
-    float        sum=0;//The sum of the sequence
-    unsigned int x,    //Input x number
-                 n;    //Number of terms
+    float sum=0, //The sum of the sequence
+          fact;
+    int   xInput,//The value of x
+          nTerms;//Number of terms
     
     //Input values
     cout<<"This program calculates the sum of a sequence: "<<endl;
     cout<<"Sum = x - x^3/3! + x^5/5! - x^7/7! + ..."<<endl;
     cout<<"\nPlease input a number of x: "<<endl;
-    cin>>x;
+    cin>>xInput;
     cout<<"Please input the number of terms(n): "<<endl;
-    cin>>n;
+    cin>>nTerms;
     
+    //Loop the Series
+    for (int x=1;x<=nTerms;x+=2) {
+        p=1;
+        fact=1;
+        for ()
+    }
+            
     //Process by mapping inputs to outputs
+    
     
     //Output values
 
