@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
 //******************************************************************************
 void dBoard () {
     //Game Board Output
-    cout<<"\n\t\tTIC-TAC-TOE\n   ";
+    cout<<"\n\t  TIC-TAC-TOE\n   ";
     cout<<"Player 1 (X):  -  Player 2 (O):  "<<endl;
     cout<<" ---------------------------------"<<endl;
     cout<<"\t     |     |     "<<endl;
@@ -99,7 +99,7 @@ void pTurn() {
     if (turn=='X') { //Player 1
         cout<<"Player 1 turn [X]: ";
     }
-    else if (turn=='0') { //Player 2
+    else { //Player 2
         cout<<"Player 2 turn [O]: ";
     }
     cin>>choice;
