@@ -1,6 +1,6 @@
 /* 
   File:   main.cpp
-  Author: Dr. Mark E. Lehr
+  Author: Linh Vu
   Created on January 29, 2017, 1:15 PM
   Purpose:  Project 1: TIC TAC TOE
  */
@@ -52,9 +52,9 @@ int main(int argc, char** argv) {
     //Mapping out the game
     turn='X'; //Player 1's turn
     while (!gOver()) {
-        dBoard();
-        pTurn();
-        gOver();
+          dBoard();
+          pTurn();
+          gOver();
     }
     if (turn=='O'&&!DRAW) {
         dBoard(); //Board Display
