@@ -37,45 +37,48 @@ int main(int argc, char** argv) {
     string first1,last1, //First and last name (Player 1)
            first2,last2; //First and last name (Player 2)
         
-    //Main Menu (Introducing The Game)
-    cout<<"              Welcome Players."<<endl;
+    //Main Menu
+    cout<<"              Welcome Players."<<endl; //Introducing the Game
     cout<<endl;
     cout<<"We're about to play a game called Tic Tac Toe.\nPlease enter your "
             "first and last name"
             " as Player 1 and Player 2."<<endl;
     cout<<endl;
-    cout<<"Player 1: [X]"<<endl;
+    cout<<"Player 1: [X]"<<endl; //Player 1's name [X]
     cin>>first1>>last1;
-    cout<<"Player 2: [O]"<<endl;
+    cout<<"Player 2: [O]"<<endl; //Player 2's name [O]]
     cin>>first2>>last2;
     
     //Mapping out the game
-    turn='X';
+    turn='X'; //Player 1's turn
     while (!gOver()) {
         dBoard();
         pTurn();
         gOver();
     }
     if (turn=='O'&&!DRAW) {
-        dBoard();
+        dBoard(); //Board Display
         cout<<endl<<endl<<"Player 1 [X] "<<first1<<" "<<last1<<" Wins!\n";
     }
     else if (turn=='X'&&!DRAW) {
-        dBoard();
+        dBoard(); //Board Display
         cout<<endl<<endl<<"Player 2 [O] "<<first2<<" "<<last2<<" Wins!\n";
     }
     else {
-        dBoard();
+        dBoard(); //Board Display
         cout<<endl<<endl<<"[X] and [O] ==> DRAW!\n";
     }
     return 0;
 }
- 
+//******************************************************************************
+//*****************************DISPLAY THE BOARD********************************
+//*********************MAKE CHOICES, WINNER, LOOSER, DRAW***********************
+//******************************************************************************
 void dBoard () {
     //Game Board Output
     cout<<"\n\t\tTIC-TAC-TOE\n   ";
     cout<<"Player 1 (X):  -  Player 2 (O):  "<<endl;
-    cout<<" -------------------------------"<<endl;
+    cout<<" ---------------------------------"<<endl;
     cout<<"\t     |     |     "<<endl;
     cout<<"\t  "<<gBoard[0][0]<<"  |  "<<gBoard[0][1]<<"  |  "<<gBoard[0][2]<<endl;
     cout<<"\t_____|_____|_____"<<endl;
@@ -89,14 +92,14 @@ void dBoard () {
 
 void pTurn() {
     //Declare Variables
-    int choice;
-    int row=0,col=0;
+    int choice; //Choices to make from 1 to 9
+    int row=0,col=0; //Rows and Columns on the Board
    
-    //Players Turns
-    if (turn=='X') {
+    //Players Turns 
+    if (turn=='X') { //Player 1
         cout<<"Player 1 turn [X]: ";
     }
-    else if (turn=='0') {
+    else if (turn=='0') { //Player 2
         cout<<"Player 2 turn [O]: ";
     }
     cin>>choice;
@@ -150,8 +153,5 @@ bool gOver() {
         }
     }
     DRAW=true;
-    return true;
+    return true; //Exit Stages Right
 }
-
-              
-    
