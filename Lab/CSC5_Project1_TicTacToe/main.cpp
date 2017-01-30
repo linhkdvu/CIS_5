@@ -1,0 +1,157 @@
+/* 
+  File:   main.cpp
+  Author: Dr. Mark E. Lehr
+  Created on January 29, 2017, 1:15 PM
+  Purpose:  Project 1: TIC TAC TOE
+ */
+
+//System Libraries
+#include <iostream> //Input and Output Library
+#include <iomanip>  //Formatting
+#include <cmath>    //Math Library
+#include <fstream>  //File I/O
+#include <string>   //String Object
+#include <ctime>    //Time for random seed
+#include <cstdlib>  //Setting random seed
+using namespace std;
+
+//User Libraries
+
+//Global Constants
+//Such as PI, Vc, -> Math/Science values
+//as well as conversions from system of units to another
+
+//Function Prototypes
+char gBoard[3][3]= { {'1','2','3'},
+                     {'4','5','6'},
+                     {'7','8','9'} }, //Game board output
+     turn;       //Player turns
+bool DRAW=false, //Game Won
+     gOver();    //Game over
+void dBoard();   //Display Board
+void pTurn();    //Player switching turns
+
+//Executable code begins here!!!
+int main(int argc, char** argv) {
+    //Declare Variables
+    string first1,last1, //First and last name (Player 1)
+           first2,last2; //First and last name (Player 2)
+        
+    //Main Menu (Introducing The Game)
+    cout<<"              Welcome Players."<<endl;
+    cout<<endl;
+    cout<<"We're about to play a game called Tic Tac Toe.\nPlease enter your "
+            "first and last name"
+            " as Player 1 and Player 2."<<endl;
+    cout<<endl;
+    cout<<"Player 1: [X]"<<endl;
+    cin>>first1>>last1;
+    cout<<"Player 2: [O]"<<endl;
+    cin>>first2>>last2;
+    
+    //Mapping out the game
+    turn='X';
+    while (!gOver()) {
+        dBoard();
+        pTurn();
+        gOver();
+    }
+    if (turn=='O'&&!DRAW) {
+        dBoard();
+        cout<<endl<<endl<<"Player 1 [X] "<<first1<<" "<<last1<<" Wins!\n";
+    }
+    else if (turn=='X'&&!DRAW) {
+        dBoard();
+        cout<<endl<<endl<<"Player 2 [O] "<<first2<<" "<<last2<<" Wins!\n";
+    }
+    else {
+        dBoard();
+        cout<<endl<<endl<<"[X] and [O] ==> DRAW!\n";
+    }
+    return 0;
+}
+ 
+void dBoard () {
+    //Game Board Output
+    cout<<"\n\t\tTIC-TAC-TOE\n   ";
+    cout<<"Player 1 (X):  -  Player 2 (O):  "<<endl;
+    cout<<" -------------------------------"<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t  "<<gBoard[0][0]<<"  |  "<<gBoard[0][1]<<"  |  "<<gBoard[0][2]<<endl;
+    cout<<"\t_____|_____|_____"<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t  "<<gBoard[1][0]<<"  |  "<<gBoard[1][1]<<"  |  "<<gBoard[1][2]<<endl;
+    cout<<"\t_____|_____|_____"<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t  "<<gBoard[2][0]<<"  |  "<<gBoard[2][1]<<"  |  "<<gBoard[2][2]<<endl;
+    cout<<"\t     |     |     "<<endl<<endl;
+}
+
+void pTurn() {
+    //Declare Variables
+    int choice;
+    int row=0,col=0;
+   
+    //Players Turns
+    if (turn=='X') {
+        cout<<"Player 1 turn [X]: ";
+    }
+    else if (turn=='0') {
+        cout<<"Player 2 turn [O]: ";
+    }
+    cin>>choice;
+    
+    //Mapping out
+    switch (choice) {
+        case 1: row=0;col=0;break;
+        case 2: row=0;col=1;break;
+        case 3: row=0;col=2;break;
+        case 4: row=1;col=0;break;
+        case 5: row=1;col=1;break;
+        case 6: row=1;col=2;break;
+        case 7: row=2;col=0;break;
+        case 8: row=2;col=1;break;
+        case 9: row=2;col=2;break;
+        default:
+            cout<<"You did not enter a correct number! Try again!\n";
+            pTurn();
+    }
+    
+    //Player turns on the game
+    if (turn=='X'&&gBoard[row][col]!='X'&&gBoard[row][col]!='O') {
+        gBoard[row][col]='X';
+        turn='O';
+    }
+    else if (turn=='O'&&gBoard[row][col]!='X'&&gBoard[row][col]!='O') {
+        gBoard[row][col]='O';
+        turn='X';
+    }
+    else {
+        cout<<"The cell you chose is used! Try again\n";
+        pTurn;
+    }
+}
+
+//Game Over
+bool gOver() {
+    for (int i=0;i<3;i++) { //Check for a winner
+        if ((gBoard[i][0]==gBoard[i][1]&&gBoard[i][1]==gBoard[i][2])||
+                (gBoard[0][i]==gBoard[1][i]&&gBoard[1][i]==gBoard[2][i])|| 
+                (gBoard[0][0]==gBoard[1][1]&&gBoard[1][1]==gBoard[2][2])|| 
+                (gBoard[0][2]==gBoard[1][1]&&gBoard[1][1]==gBoard[2][0])) {
+            return true;
+        }  
+    }
+    for (int i=0;i<3;i++) { //Check for draw
+        for (int j=0;j<3;j++) {
+            if (gBoard[i][j]!='X'&&gBoard[i][j]!='O') {
+                return false;
+            }
+        }
+    }
+    DRAW=true;
+    return true;
+}
+
+              
+    

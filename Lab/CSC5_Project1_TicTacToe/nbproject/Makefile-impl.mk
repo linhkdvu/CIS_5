@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Midterm_Prob6
+PROJECTNAME=CSC5_Project1_TicTacToe
 
 # Active Configuration
 DEFAULTCONF=Debug

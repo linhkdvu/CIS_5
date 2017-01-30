@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=midterm_prob6
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/midterm_prob6
+CND_ARTIFACT_NAME_Debug=csc5_project1_tictactoe
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/csc5_project1_tictactoe
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=midtermprob6.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/midtermprob6.tar
+CND_PACKAGE_NAME_Debug=csc5project1tictactoe.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/csc5project1tictactoe.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=midterm_prob6
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/midterm_prob6
+CND_ARTIFACT_NAME_Release=csc5_project1_tictactoe
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/csc5_project1_tictactoe
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=midtermprob6.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/midtermprob6.tar
+CND_PACKAGE_NAME_Release=csc5project1tictactoe.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/csc5project1tictactoe.tar
 #
 # include compiler specific variables
 #
