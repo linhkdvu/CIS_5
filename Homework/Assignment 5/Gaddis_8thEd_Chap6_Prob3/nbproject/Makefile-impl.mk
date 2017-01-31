@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=BiasedCoin_2Throw
+PROJECTNAME=Gaddis_8thEd_Chap6_Prob3
 
 # Active Configuration
 DEFAULTCONF=Debug
