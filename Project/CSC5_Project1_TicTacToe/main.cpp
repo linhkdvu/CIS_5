@@ -52,9 +52,9 @@ int main(int argc, char** argv) {
     //Mapping out the game
     turn='X'; //Player 1's turn
     while (!gOver()) {
-          dBoard();
-          pTurn();
-          gOver();
+           dBoard();
+            pTurn();
+            gOver();
     }
     if (turn=='O'&&!DRAW) {
         dBoard(); //Board Display
