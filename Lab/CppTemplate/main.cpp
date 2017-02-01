@@ -1,6 +1,6 @@
 /* 
   File:   main.cpp
-  Author: Dr. Mark E. Lehr
+  Author: Linh Vu
   Created on February 1, 2017, 12:23 PM
   Purpose:  Template for all C Programs
  
