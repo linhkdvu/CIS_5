@@ -72,9 +72,9 @@ int main(int argc, char** argv) {
     
         //Introduction
         cout<<endl;
-        cout<<"-------------------------------------"<<endl;
-        cout<<"ASSIGNMENT 5 - Choose from the list."<<endl;
-        cout<<"-------------------------------------"<<endl;
+        cout<<"-------------------------------------------------"<<endl;
+        cout<<"    ASSIGNMENT 5 MENU - Choose from the list."<<endl;
+        cout<<"-------------------------------------------------"<<endl;
         
         //Input values
         cout<<"Type 1 : Homework #1  - MARKUP"<<endl;
@@ -581,3 +581,9 @@ float avgDays (int Employ,int Total) {
     float Avg=(Employ*365)/Total;
     return Avg;
 }
+
+/*
+ *******************************************************************************
+ END OF THE MENU
+ *******************************************************************************
+ */
