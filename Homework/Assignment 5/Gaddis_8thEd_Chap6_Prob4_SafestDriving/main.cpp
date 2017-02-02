@@ -14,7 +14,8 @@
             • void findLowest() is passed the five accident totals. It 
             determines which is the smallest and prints the name of the region, 
             along with its accident figure.
-            Input Validation: Do not accept an accident number that is less than 0.
+            Input Validation: Do not accept an accident number that is less than
+            0.
  */
 
 //System Libraries
