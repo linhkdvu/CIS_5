@@ -48,18 +48,32 @@ int main(int argc, char** argv) {
     
     //Input values
     cout<<"Please input your answer for the questions. Only A, B, C, D are "
-            "valid answers."endl;
+            "valid answers."<<endl;
     for (int a=0;a<SIZE;a++) {
         do {
             cout<<"Question "<<a+1<<": ";
             cin>>tAnsw[a];
-            if ()
+            if (!((tAnsw[a]=='A')||(tAnsw[a]=='B')||(tAnsw[a]=='C')||
+                    (tAnsw[a]=='D'))) {
+                cout<<"Invalid Input. A, B, C, or D only!"<<endl;
+            }
         }
+        while (!((tAnsw[a]=='A')||(tAnsw[a]=='B')||(tAnsw=='C')||(tAnsw[a]=='D')));
     }
     
     //Process by mapping inputs to outputs
+    for (int a=0;a<SIZE;a++) {
+        if (cAnsw[a]==tAnsw[a])
+            cAnsw++;
+    }
     
     //Output values
+    if (cAnsw>=15)
+        cout<<"Congratulation! You have passed the test! You answered "<<cAnsw
+                <<" questions right!"<<endl;
+    else
+        cout<<"Look like you have failed to pass the test...you only answered "
+                <<cAnsw<<" questions right."<<endl;
 
     //Exit stage right!
     return 0;
