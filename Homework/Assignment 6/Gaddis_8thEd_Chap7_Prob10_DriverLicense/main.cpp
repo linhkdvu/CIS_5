@@ -49,25 +49,26 @@ int main(int argc, char** argv) {
     //Input values
     cout<<"Please input your answer for the questions. Only A, B, C, D are "
             "valid answers."<<endl;
-    for (int a=0;a<SIZE;a++) {
+    for (int i=0;i<SIZE;i++) {
         do {
-            cout<<"Question "<<a+1<<": ";
-            cin>>tAnsw[a];
-            if (!((tAnsw[a]=='A')||(tAnsw[a]=='B')||(tAnsw[a]=='C')||
-                    (tAnsw[a]=='D'))) {
+            cout<<endl;
+            cout<<"Question "<<i+1<<": ";
+            cin>>tAnsw[i];
+            if (!(tAnsw[i]=='A'||tAnsw[i]=='B'||tAnsw[i]=='C'||tAnsw[i]=='D')) {
                 cout<<"Invalid Input. A, B, C, or D only!"<<endl;
             }
         }
-        while (!((tAnsw[a]=='A')||(tAnsw[a]=='B')||(tAnsw=='C')||(tAnsw[a]=='D')));
+        while (!(tAnsw[i]=='A'||tAnsw[i]=='B'||tAnsw[i]=='C'||tAnsw[i]=='D'));
     }
     
-    //Process by mapping inputs to outputs
-    for (int a=0;a<SIZE;a++) {
-        if (cAnsw[a]==tAnsw[a])
+    //Finding the correct answers
+    for (int i=0;i<SIZE;i++) {
+        if (Answ[i]==tAnsw[i]) 
             cAnsw++;
     }
     
     //Output values
+    cout<<endl;
     if (cAnsw>=15)
         cout<<"Congratulation! You have passed the test! You answered "<<cAnsw
                 <<" questions right!"<<endl;
