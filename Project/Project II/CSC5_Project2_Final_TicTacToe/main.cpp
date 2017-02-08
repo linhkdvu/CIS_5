@@ -13,6 +13,7 @@
 #include <string>   //String Object
 #include <ctime>    //Time for random seed
 #include <cstdlib>  //Setting random seed
+#include <vector>   //Vector Library
 using namespace std;
 
 //User Libraries
@@ -26,12 +27,17 @@ const int COLSIZE=4; //Column size in the array
 //Function Prototypes
 char turn;       //Player turns
 bool DRAW=false, //Game Won
-     gOver (char gBoard[ROWSIZE][COLSIZE]);    //Game over
+     gOver (char gBoard[ROWSIZE][COLSIZE]);   //Game over
 void dBoard(char gBoard[ROWSIZE][COLSIZE]);   //Display Board
-void pTurn (char gBoard[ROWSIZE][COLSIZE]);    //Player switching turns
+void pTurn (char gBoard[ROWSIZE][COLSIZE]);   //Player switching turns
+void filAray(int [],int);                     //Fill the array with random number
+int  luckyn (int [],int,int);                 //Lucky number
 
 //Executable code begins here!!!
 int main(int argc, char** argv) {
+    //Set the random number of seed
+    srand(static_cast<unsigned int>(time(0)));
+    
     //Declare Variables
     string first1,last1, //First and last name (Player 1)
            first2,last2; //First and last name (Player 2)
@@ -39,8 +45,13 @@ int main(int argc, char** argv) {
                                      {'E','F','G','H'},
                                      {'I','J','K','L'},
                                      {'M','N','O','P'} }; //Game board output
-    char yesno;          //User input to play the game
+    char yesno,          //User input to play the game
+         winner;         //The winner get a prize
     
+    //Linear search
+    const int SIZE=200;       //Size for the array to choose a lucky number
+    const int utilize=SIZE/2; 
+    int array[utilize]={};    //The array
         
     //Main Menu
     cout<<"              Welcome Players."<<endl; //Introducing the Game
@@ -69,10 +80,8 @@ int main(int argc, char** argv) {
         case 'y': case 'Y': {
             cout<<endl;
         }
-    }
-    
-    //Checking for winner
-    
+    }   
+        
     //Mapping out the game
     turn='X'; //Player 1's turn
     while (!gOver(gBoard)) {
@@ -92,6 +101,23 @@ int main(int argc, char** argv) {
         dBoard(gBoard); //Board Display
         cout<<endl<<endl<<"[X] and [O] ==> DRAW!\n";
     }
+    
+    //Winner's prize
+    filAray(array,utilize);
+    int number; //The winner type in a number
+    if (winner=='X') {
+        cout<<"Congratulation. You are the winner!"<<endl;
+        cout<<"Now you will get a prize; however, you need to type a number "
+                "from 0 to 200.\nIf the number that you typed in is found, "
+                "then you will get a prize!"<<endl;
+        cout<<"Type in your number: ";
+        cin>>number;
+        cout<<endl;
+        cout<<"Congratulation. "<<number<<" was found at "<<luckyn
+                (array,utilize,10)<<"."<<endl;
+    }
+    else (winner=='O');
+    
     return 0;
 }
 
@@ -123,7 +149,7 @@ void dBoard (char gBoard[ROWSIZE][COLSIZE]) {
 void pTurn(char gBoard[ROWSIZE][COLSIZE]) {
     //Declare Variables
     int choice; //Choices to make from 1 to 9
-    int row,col; //Rows and Columns on the Board
+    int row=0,col=0; //Rows and Columns on the Board
    
     //Players Turns 
     if (turn=='X') { //Player 1
@@ -136,7 +162,7 @@ void pTurn(char gBoard[ROWSIZE][COLSIZE]) {
     
     //Mapping out
     switch (choice) {
-        case 'A': case 'a': row=0;col=0;break;
+        case 'A': case 'a': array[0][0]=player;break;
         case 'B': case 'b': row=0;col=1;break;
         case 'C': case 'c': row=0;col=2;break;
         case 'D': case 'd': row=0;col=3;break;
@@ -172,16 +198,23 @@ void pTurn(char gBoard[ROWSIZE][COLSIZE]) {
     }
 }
 
-//Game Over
+//******************************************************************************
+//Game Over (Find the winner)
 bool gOver(char gBoard[ROWSIZE][COLSIZE]) {
     for (int i=0;i<4;i++) { //Check for a winner
-        if ((gBoard[i][0]=='A'||gBoard[i][0]=='a')==(gBoard[i][1]=='B'||gBoard[i][1]=='b')&&(gBoard[i][1]=='B'||gBoard[i][1]=='b')==(gBoard[i][2]=='C'||gBoard[i][2]=='c')&&(gBoard[i][2]=='C'||gBoard[i][2]=='c')==(gBoard[i][3]=='D'||gBoard[i][3]='d'))||
+        //First win row (A,B,C,D)
+        if ((gBoard[i][0]==gBoard[i][1]&&
+             gBoard[i][1]==gBoard[i][2]&&
+             gBoard[i][2]==gBoard[i][3])||
+        //Second win row (A,E,I,M)
             (gBoard[0][i]==gBoard[1][i]&&
              gBoard[1][i]==gBoard[2][i]&&
              gBoard[2][i]==gBoard[3][i])|| 
+        //Third win row (A,F,K,P)
             (gBoard[0][0]==gBoard[1][1]&&
              gBoard[1][1]==gBoard[2][2]&&
              gBoard[2][2]==gBoard[3][3])|| 
+        //Fourth win row (D,G,J,M)
             (gBoard[0][3]==gBoard[1][2]&&
              gBoard[1][2]==gBoard[2][1]&&
              gBoard[2][1]==gBoard[3][0])) {
@@ -197,4 +230,19 @@ bool gOver(char gBoard[ROWSIZE][COLSIZE]) {
     }
     DRAW=true;
     return true; //Exit Stages Right
+}
+//******************************************************************************
+//Winner's prize
+void filAray(int a[],int n) {
+    for (int i=0;i<n;i++) {
+        a[i]=rand()%90+10;
+    }
+}
+
+int luckyn(int a[],int n,int val) {
+    for (int i=0;i<n;i++) {
+        if (a[i]==val)
+            return i;
+    }
+    return -1;
 }
