@@ -31,18 +31,13 @@ using namespace std;
 //as well as conversions from system of units to another
 const int ROWSIZE=4; //Row size in the array
 const int COLSIZE=4; //Column size in the array
+char turn;
 
 //Function Prototypes
-char gBoard[ROWSIZE][COLSIZE]= { {'A','B','C','D'},
-                                 {'E','F','G','H'},
-                                 {'I','J','K','L'},
-                                 {'M','N','O','P'} } ; //Game board output
-char turn;       //Player turns
-bool DRAW=false, //Game Won
-     gOver ();   //Game over
-
-void dBoard();   //Display Board
-void pTurn ();   //Player switching turns
+bool DRAW=false,                              //Game Won
+     gOver (char gBoard[ROWSIZE][COLSIZE]);   //Game over
+void dBoard(char gBoard[ROWSIZE][COLSIZE]);   //Display Board
+void pTurn (char gBoard[ROWSIZE][COLSIZE]);   //Player switching turns
 void bubble (int [],int);      //Bubble 
 void filAray(int [],int);      //Fill the array with random number
 void prntAry(int [],int,int);  //Print out the array
@@ -54,6 +49,11 @@ int main(int argc, char** argv) {
     srand(static_cast<unsigned int>(time(0)));
     
     //Declare Variables
+    char gBoard[ROWSIZE][COLSIZE]= { {'A','B','C','D'},
+                                     {'E','F','G','H'},
+                                     {'I','J','K','L'},
+                                     {'M','N','O','P'} } ; 
+                         //Game board output
     string first1,last1, //First and last name (Player 1)
            first2,last2; //First and last name (Player 2)
     char yesno,          //User input to play the game
@@ -94,18 +94,19 @@ int main(int argc, char** argv) {
     bool x=false; 
     do {
         switch (yesno) {
-            case 'y': case 'Y': {
+            case 'Y': 
+            case 'y': {
                 cout<<endl;
             }   
                 //Mapping out the game
                 turn='X'; //Player 1's turn
-                while (!gOver()) {
-                       dBoard();
-                        pTurn();
-                        gOver();
+                while (!gOver(gBoard)) {
+                        dBoard(gBoard);
+                        pTurn(gBoard);
+                        gOver(gBoard);
                 }
                 if (turn=='O'&&!DRAW) {
-                    dBoard(); //Board Display
+                    dBoard(gBoard); //Board Display
                     cout<<endl<<endl<<"Player 1 [X] "<<first1<<" "<<last1<<
                             " Wins!\n";
                     //Winner's Prize
@@ -123,15 +124,16 @@ int main(int argc, char** argv) {
                         cout<<"Type in your number: ";
                         cin>>find;
                         cout<<endl;
-                        cout<<"CONGRATULATION! "<<find<<" was found at "<<luckyn
+                        cout<<find<<" was found at "<<luckyn
                             (array,utilize,find)<<"."<<endl;
                         //Output array
                         prntAry(array,utilize,10);
                     }
                 }
                 else if (turn=='X'&&!DRAW) {
-                    dBoard(); //Board Display
-                    cout<<endl<<endl<<"Player 2 [O] "<<first2<<" "<<last2<<" Wins!\n";
+                    dBoard(gBoard); //Board Display
+                    cout<<endl<<endl<<"Player 2 [O] "<<first2<<" "<<last2<<
+                            " Wins!\n";
                     //Winner's Prize
                     int find;
                     if (turn=='X'&&!DRAW) {
@@ -147,27 +149,28 @@ int main(int argc, char** argv) {
                         cout<<"Type in your number: ";
                         cin>>find;
                         cout<<endl;
-                        cout<<"CONGRATULATION! "<<find<<" was found at "<<luckyn
-                            (array,utilize,find)<<"."<<endl;
+                        cout<<find<<" was found at "<<luckyn(array,utilize,find)
+                                <<"."<<endl;
                         //Output array
                         prntAry(array,utilize,10);
                     }
                 }
                 else {
-                    dBoard(); //Board Display
+                    dBoard(gBoard); //Board Display
                     cout<<endl<<endl<<"[X] and [O] ==> DRAW!\n";
-                    }
-                break;
+                }break;
                 case 'N':
                 case 'n': {
                     x=false;
                     cout<<endl;
                     cout<<"\tSEE YOU AGAIN."<<endl; 
                     }
-                }
+                }break;
     }while (turn=='O'&&!DRAW||turn=='X'&&!DRAW);
-     while (x);
+     while (x); 
     
+    
+    //Exit stage right
     return 0;
 }
 
@@ -175,7 +178,7 @@ int main(int argc, char** argv) {
 //*****************************DISPLAY THE BOARD********************************
 //*********************MAKE CHOICES, WINNER, LOOSER, DRAW***********************
 //******************************************************************************
-void dBoard () {
+void dBoard (char gBoard[ROWSIZE][COLSIZE]) {
     //Game Board Output
     cout<<ANSI_COLOR_RED<<"\n\t     TIC-TAC-TOE\n   ";
     cout<<ANSI_COLOR_RESET<<"Player 1 (X):  -  Player 2 (O):  "<<endl;
@@ -199,7 +202,7 @@ void dBoard () {
 }
 
 //******************************************************************************
-void pTurn() {
+void pTurn(char gBoard[ROWSIZE][COLSIZE]) {
     //Declare Variables
     char choice; //Choices to make from A to P
     int row=0,col=0; //Rows and Columns on the Board
@@ -234,7 +237,7 @@ void pTurn() {
         case 'P': case 'p': row=3;col=3;break;
         default:
             cout<<"You did not enter a correct character! Try again!\n";
-            pTurn();
+            pTurn(gBoard);
     }
     
     //Player turns on the game
@@ -249,13 +252,13 @@ void pTurn() {
     }
     else {
         cout<<"The cell you chose is used! Try again\n";
-        pTurn;
+        pTurn(gBoard);
     }
 }
 
 //******************************************************************************
 //Game Over (Find the winner)
-bool gOver() {
+bool gOver(char gBoard[ROWSIZE][COLSIZE]) {
     for (int i=0;i<4;i++) { //Check for a winner
         //First win row (A,B,C,D)
         if ((gBoard[i][0]==gBoard[i][1]&&
